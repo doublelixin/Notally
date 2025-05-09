@@ -15,7 +15,7 @@ android {
         applicationId 'com.omgodse.notally'
         minSdk 21
         targetSdk 34
-        versionCode 56
+        versionCode 61
         versionName "6.1"
         resourceConfigurations += ['en', 'ca', 'cs', 'da', 'de', 'el', 'es', 'fr', 'hu', 'in', 'it', 'ja', 'ko', 'my', 'nb', 'nl', 'nn', 'pl', 'pt-rBR', 'pt-rPT', 'ro', 'ru', 'sk', 'sl', 'sv', 'tl', 'tr', 'uk', 'vi', 'zh-rCN']
         vectorDrawables.generatedDensities = []
@@ -51,6 +51,13 @@ android {
 
     androidResources {
         generateLocaleConfig = true
+    }
+
+    android.applicationVariants.configureEach {
+        variant ->
+            variant.outputs.configureEach {
+                outputFileName = "notally_v${variant.versionName}.apk"
+            }
     }
 }
 
