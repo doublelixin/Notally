@@ -79,8 +79,9 @@
             <com.omgodse.notally.OverflowEditText
                 android:id="@+id/EnterBody"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@null"
+                android:gravity="start"
                 android:hint="@string/note"
                 android:inputType="textMultiLine|textCapSentences"
                 android:paddingStart="24dp"
