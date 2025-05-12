@@ -59,7 +59,7 @@ object DateFormat : ListInfo {
 
     override val title = R.string.date_format
     override val key = "dateFormat"
-    override val defaultValue = relative
+    override val defaultValue = absolute
 
     override fun getEntryValues() = arrayOf(none, relative, absolute)
 

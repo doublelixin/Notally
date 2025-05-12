@@ -1,9 +1,11 @@
 package com.omgodse.notally.recyclerview.viewholder
 
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -79,6 +81,7 @@ class BaseNoteVH(
         binding.root.isChecked = checked
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun bind(baseNote: BaseNote, mediaRoot: File?, checked: Boolean) {
         updateCheck(checked)
 
@@ -139,6 +142,7 @@ class BaseNoteVH(
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setDate(timestamp: Long) {
         if (dateFormat != DateFormat.none) {
             binding.Date.visibility = View.VISIBLE
