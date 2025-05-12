@@ -134,14 +134,14 @@ class MainActivity : AppCompatActivity() {
 
         val menu = binding.ActionMode.menu
         val pinned = menu.add(R.string.pin, R.drawable.pin) {}
-        val share = menu.add(R.string.share, R.drawable.share) { share() }
+        val delete = menu.add(R.string.delete, R.drawable.delete) { model.moveBaseNotes(Folder.DELETED) }
         val labels = menu.add(R.string.labels, R.drawable.label) { label() }
 
         val export = createExportMenu(menu)
 
         val changeColor = menu.add(R.string.change_color, R.drawable.change_color) { changeColor() }
         val copy = menu.add(R.string.make_a_copy, R.drawable.copy) { model.copyBaseNote() }
-        val delete = menu.add(R.string.delete, R.drawable.delete) { model.moveBaseNotes(Folder.DELETED) }
+        val share = menu.add(R.string.share, R.drawable.share) { share() }
         val archive = menu.add(R.string.archive, R.drawable.archive) { model.moveBaseNotes(Folder.ARCHIVED) }
         val restore = menu.add(R.string.restore, R.drawable.restore) { model.moveBaseNotes(Folder.NOTES) }
         val unarchive = menu.add(R.string.unarchive, R.drawable.unarchive) { model.moveBaseNotes(Folder.NOTES) }
