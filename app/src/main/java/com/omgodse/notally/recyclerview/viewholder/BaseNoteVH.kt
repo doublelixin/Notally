@@ -30,6 +30,7 @@ import com.omgodse.notally.room.ListItem
 import com.omgodse.notally.room.Reminder
 import com.omgodse.notally.room.SpanRepresentation
 import com.omgodse.notally.room.Type
+import com.omgodse.notally.utils.DateTimeUtils
 import org.ocpsoft.prettytime.PrettyTime
 import java.io.File
 import java.util.Date
@@ -144,7 +145,7 @@ class BaseNoteVH(
             val date = Date(timestamp)
             when (dateFormat) {
                 DateFormat.relative -> binding.Date.text = prettyTime.format(date)
-                DateFormat.absolute -> binding.Date.text = fullFormat.format(date)
+                DateFormat.absolute -> binding.Date.text = DateTimeUtils.getCurrentFormattedTime(date)
             }
         } else binding.Date.visibility = View.GONE
     }

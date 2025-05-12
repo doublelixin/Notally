@@ -1,9 +1,12 @@
 package com.omgodse.notally.preferences
 
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.omgodse.notally.R
 import org.ocpsoft.prettytime.PrettyTime
-import java.text.DateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Date
 
 sealed interface ListInfo {
@@ -60,11 +63,14 @@ object DateFormat : ListInfo {
 
     override fun getEntryValues() = arrayOf(none, relative, absolute)
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun getEntries(context: Context): Array<String> {
         val none = context.getString(R.string.none)
         val date = Date(System.currentTimeMillis() - 86400000)
         val relative = PrettyTime().format(date)
-        val absolute = DateFormat.getDateInstance(DateFormat.FULL).format(date)
+        //val absolute = DateFormat.getDateInstance(DateFormat.FULL).format(date)
+        val formatter = DateTimeFormatter.ofPattern("yyyy年M月d日EEEEHH:mm:ss")
+        val absolute = LocalDateTime.now().format(formatter)
         return arrayOf(none, relative, absolute)
     }
 }
