@@ -42,7 +42,8 @@
                 android:paddingStart="24dp"
                 android:paddingTop="16dp"
                 android:paddingEnd="24dp"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/DateCreated"
@@ -53,7 +54,8 @@
                 android:paddingEnd="24dp"
                 android:text="@string/date"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:textColorHint" />
+                android:textColor="?android:textColorHint"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/Reminder"
