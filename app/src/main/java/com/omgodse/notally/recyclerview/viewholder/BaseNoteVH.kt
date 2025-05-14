@@ -33,6 +33,7 @@ import com.omgodse.notally.room.Reminder
 import com.omgodse.notally.room.SpanRepresentation
 import com.omgodse.notally.room.Type
 import com.omgodse.notally.utils.DateTimeUtils
+import com.omgodse.notally.utils.DpUtils
 import org.ocpsoft.prettytime.PrettyTime
 import java.io.File
 import java.util.Date
@@ -55,7 +56,7 @@ class BaseNoteVH(
         val body = TextSize.getDisplayBodySize(textSize)
 
         binding.Title.setTextSize(TypedValue.COMPLEX_UNIT_SP, title)
-        binding.Date.setTextSize(TypedValue.COMPLEX_UNIT_SP, body)
+        binding.Date.setTextSize(TypedValue.COMPLEX_UNIT_SP, body / 1.5f)
         binding.Note.setTextSize(TypedValue.COMPLEX_UNIT_SP, body)
         binding.Reminder.setTextSize(TypedValue.COMPLEX_UNIT_SP, body)
 
@@ -103,6 +104,8 @@ class BaseNoteVH(
         if (isEmpty(baseNote)) {
             binding.Title.setText(getEmptyMessage(baseNote))
             binding.Title.visibility = View.VISIBLE
+        } else {
+            binding.Date.setPadding(DpUtils.dpToPxInt(16f), 0, DpUtils.dpToPxInt(16f), 0)
         }
     }
 

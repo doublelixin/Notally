@@ -7,13 +7,23 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.omgodse.notally.preferences.Preferences
 import com.omgodse.notally.preferences.Theme
+import com.omgodse.notally.utils.DpUtils
 import java.util.concurrent.TimeUnit
 
 class NotallyApplication : Application() {
+    companion object {
+        private lateinit var instance: NotallyApplication
+
+        @JvmStatic
+        fun getInstance(): NotallyApplication {
+            return instance
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()
-
+        instance = this
+        DpUtils.init(this)
         val preferences = Preferences.getInstance(this)
         preferences.theme.observeForever { theme ->
             when (theme) {
