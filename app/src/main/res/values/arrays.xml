@@ -27,4 +27,9 @@
         <item>@string/edit</item>
         <item>@string/delete</item>
     </string-array>
+
+    <string-array name="order">
+        <item>@string/order_by_create_time</item>
+        <item>@string/order_by_update_time</item>
+    </string-array>
 </resources>

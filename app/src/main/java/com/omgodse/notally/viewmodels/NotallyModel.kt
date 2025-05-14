@@ -32,6 +32,7 @@ import com.omgodse.notally.miscellaneous.IO
 import com.omgodse.notally.miscellaneous.Operations
 import com.omgodse.notally.miscellaneous.applySpans
 import com.omgodse.notally.preferences.BetterLiveData
+import com.omgodse.notally.preferences.Order
 import com.omgodse.notally.preferences.Preferences
 import com.omgodse.notally.room.Audio
 import com.omgodse.notally.room.BaseNote
@@ -57,6 +58,7 @@ class NotallyModel(private val app: Application) : AndroidViewModel(app) {
     private val baseNoteDao = database.getBaseNoteDao()
 
     val textSize = Preferences.getInstance(app).textSize.value
+    val order = Preferences.getInstance(app).order.value
 
     var isNewNote = true
     var isFirstInstance = true
@@ -270,7 +272,11 @@ class NotallyModel(private val app: Application) : AndroidViewModel(app) {
 
                 title = baseNote.title
                 pinned = baseNote.pinned
-                timestamp = baseNote.timestamp
+                timestamp = if (order == Order.create){
+                    baseNote.timestamp
+                }else{
+                    System.currentTimeMillis()
+                }
 
                 setLabels(baseNote.labels)
 

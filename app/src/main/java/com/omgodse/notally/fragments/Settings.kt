@@ -50,6 +50,10 @@ class Settings : Fragment() {
 
         binding.switchButton.isChecked = model.preferences.isShowMakeListButton()
 
+        model.preferences.order.observe(viewLifecycleOwner) { value ->
+            binding.order.setup(Order, value)
+        }
+
 
         binding.MaxItems.setup(MaxItems, model.preferences.maxItems)
 

@@ -127,3 +127,18 @@ object TextSize : ListInfo {
         }
     }
 }
+
+object Order : ListInfo {
+    const val create = "create"
+    const val update = "update"
+
+    override val title = R.string.order
+    override val key = "Order"
+    override val defaultValue = create
+
+    override fun getEntryValues() = arrayOf(create, update)
+
+    override fun getEntries(context: Context): Array<String> {
+        return context.resources.getStringArray(R.array.order)
+    }
+}

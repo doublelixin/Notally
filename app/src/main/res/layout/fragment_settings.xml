@@ -62,35 +62,6 @@
             style="@style/PreferenceHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/backup" />
-
-        <include
-            android:id="@+id/AutoBackup"
-            layout="@layout/preference" />
-
-        <TextView
-            android:id="@+id/ImportBackup"
-            style="@style/Preference"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/import_backup" />
-
-        <TextView
-            android:id="@+id/ExportBackup"
-            style="@style/Preference"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/export_backup" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
-
-        <TextView
-            style="@style/PreferenceHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/other" />
 
         <LinearLayout
@@ -116,6 +87,39 @@
                 android:clickable="false"
                 android:paddingHorizontal="16dp" />
         </LinearLayout>
+
+        <include
+            android:id="@+id/order"
+            layout="@layout/preference" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            style="@style/PreferenceHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/backup" />
+
+        <include
+            android:id="@+id/AutoBackup"
+            layout="@layout/preference" />
+
+        <TextView
+            android:id="@+id/ImportBackup"
+            style="@style/Preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/import_backup" />
+
+        <TextView
+            android:id="@+id/ExportBackup"
+            style="@style/Preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/export_backup" />
 
         <View
             android:layout_width="match_parent"
