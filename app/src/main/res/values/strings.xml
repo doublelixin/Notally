@@ -126,6 +126,9 @@
     <string name="export_backup">Export backup</string>
     <string name="import_backup">Import backup</string>
 
+    <string name="other">Other</string>
+    <string name="show_item_button">Show item button</string>
+
     <string name="about">About</string>
     <string name="libraries">Libraries</string>
     <string name="rate">Rate this app</string>

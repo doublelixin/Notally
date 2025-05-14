@@ -97,6 +97,18 @@ class Preferences private constructor(app: Application) {
         }
     }
 
+    fun isShowMakeListButton(): Boolean {
+        return try {
+            preferences.getBoolean("isShowMakeListButton", true)
+        }catch (_:Exception){
+            true
+        }
+    }
+
+    fun isShowMakeListButton(visible: Boolean) {
+        editor.putBoolean("isShowMakeListButton", visible)
+        editor.commit()
+    }
 
     fun showDateCreated(): Boolean {
         return dateFormat.value != DateFormat.none

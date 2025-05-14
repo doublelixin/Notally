@@ -74,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         setupActionMode()
         setupNavigation()
         setupSearch()
+        setupMakeListButton()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -423,6 +424,14 @@ class MainActivity : AppCompatActivity() {
         binding.EnterSearchKeyword.setText(model.keyword)
         binding.EnterSearchKeyword.doAfterTextChanged { text ->
             model.keyword = requireNotNull(text).trim().toString()
+        }
+    }
+
+
+    private fun setupMakeListButton() {
+        binding.MakeList.visibility = if (model.isShowMakeListButton()) View.VISIBLE else View.GONE
+        model.isShowMakeListButton.observe(this){
+            binding.MakeList.visibility = if (model.isShowMakeListButton()) View.VISIBLE else View.GONE
         }
     }
 

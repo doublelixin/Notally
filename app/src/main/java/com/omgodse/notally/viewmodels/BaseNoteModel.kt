@@ -108,6 +108,8 @@ class BaseNoteModel(private val app: Application) : AndroidViewModel(app) {
     val importingBackup = MutableLiveData<Progress>()
     val exportingBackup = MutableLiveData<Progress>()
 
+    var isShowMakeListButton = MutableLiveData<Boolean>()
+
     val actionMode = ActionMode()
 
     private val manager = app.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -642,6 +644,16 @@ class BaseNoteModel(private val app: Application) : AndroidViewModel(app) {
             }
         }
         append("</body></html>")
+    }
+
+
+    fun isShowMakeListButton(visible: Boolean) {
+        isShowMakeListButton.value = visible
+        preferences.isShowMakeListButton(visible)
+    }
+
+    fun isShowMakeListButton(): Boolean {
+        return preferences.isShowMakeListButton()
     }
 
 

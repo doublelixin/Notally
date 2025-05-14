@@ -91,6 +91,41 @@
             style="@style/PreferenceHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/other" />
+
+        <LinearLayout
+            android:id="@+id/llSwitchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="16dp"
+                android:text="@string/show_item_button"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:clickable="false"
+                android:paddingHorizontal="16dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            style="@style/PreferenceHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/about" />
 
         <TextView

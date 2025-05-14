@@ -102,6 +102,9 @@
     <string name="export_backup">导出备份</string>
     <string name="import_backup">导入备份</string>
 
+    <string name="other">其他设置</string>
+    <string name="show_item_button">显示项目按钮</string>
+
     <string name="about">关于</string>
     <string name="libraries">库</string>
     <string name="rate">给应用打分</string>

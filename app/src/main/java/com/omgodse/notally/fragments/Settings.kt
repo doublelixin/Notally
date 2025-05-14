@@ -48,6 +48,8 @@ class Settings : Fragment() {
             binding.TextSize.setup(TextSize, value)
         }
 
+        binding.switchButton.isChecked = model.preferences.isShowMakeListButton()
+
 
         binding.MaxItems.setup(MaxItems, model.preferences.maxItems)
 
@@ -66,6 +68,12 @@ class Settings : Fragment() {
 
         binding.ExportBackup.setOnClickListener {
             exportBackup()
+        }
+
+        binding.llSwitchButton.setOnClickListener {
+            binding.switchButton.toggle()
+            val checked = binding.switchButton.isChecked
+            model.isShowMakeListButton(checked)
         }
 
         setupProgressDialog(R.string.exporting_backup, model.exportingBackup)
