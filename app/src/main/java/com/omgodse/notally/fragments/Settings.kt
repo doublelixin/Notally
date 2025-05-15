@@ -48,7 +48,7 @@ class Settings : Fragment() {
             binding.TextSize.setup(TextSize, value)
         }
 
-        binding.switchButton.isChecked = model.preferences.isShowMakeListButton()
+        binding.switchButton.isChecked = model.isShowMakeListButton()
 
         model.preferences.order.observe(viewLifecycleOwner) { value ->
             binding.order.setup(Order, value)

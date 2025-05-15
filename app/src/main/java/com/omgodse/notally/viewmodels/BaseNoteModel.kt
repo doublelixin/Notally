@@ -108,7 +108,6 @@ class BaseNoteModel(private val app: Application) : AndroidViewModel(app) {
     val importingBackup = MutableLiveData<Progress>()
     val exportingBackup = MutableLiveData<Progress>()
 
-    var isShowMakeListButton = MutableLiveData<Boolean>()
 
     val actionMode = ActionMode()
 
@@ -648,7 +647,6 @@ class BaseNoteModel(private val app: Application) : AndroidViewModel(app) {
 
 
     fun isShowMakeListButton(visible: Boolean) {
-        isShowMakeListButton.value = visible
         preferences.isShowMakeListButton(visible)
     }
 

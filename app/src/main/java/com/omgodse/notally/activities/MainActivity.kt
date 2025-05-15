@@ -388,10 +388,10 @@ class MainActivity : AppCompatActivity() {
     private fun handleDestinationChange(destination: NavDestination) {
         if (destination.id == R.id.Notes) {
             binding.TakeNote.show()
-            binding.MakeList.show()
+            if (model.isShowMakeListButton()) binding.MakeList.show()
         } else {
             binding.TakeNote.hide()
-            binding.MakeList.hide()
+            if (model.isShowMakeListButton()) binding.MakeList.hide()
         }
 
         val inputManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
@@ -430,9 +430,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupMakeListButton() {
         binding.MakeList.visibility = if (model.isShowMakeListButton()) View.VISIBLE else View.GONE
-        model.isShowMakeListButton.observe(this){
-            binding.MakeList.visibility = if (model.isShowMakeListButton()) View.VISIBLE else View.GONE
-        }
     }
 
     companion object {

@@ -102,7 +102,7 @@ class Preferences private constructor(app: Application) {
     fun isShowMakeListButton(): Boolean {
         return try {
             preferences.getBoolean("isShowMakeListButton", true)
-        }catch (_:Exception){
+        } catch (_: Exception) {
             true
         }
     }
