@@ -296,7 +296,8 @@ class NotallyModel(private val app: Application) : AndroidViewModel(app) {
     }
 
     private suspend fun createBaseNote() {
-        id = withContext(Dispatchers.IO) { baseNoteDao.insert(getBaseNote()) }
+        // Abandoning the storage of blank data
+        // id = withContext(Dispatchers.IO) { baseNoteDao.insert(getBaseNote()) }
     }
 
 
@@ -314,7 +315,8 @@ class NotallyModel(private val app: Application) : AndroidViewModel(app) {
     }
 
     suspend fun saveNote(): Long {
-        return withContext(Dispatchers.IO) { baseNoteDao.insert(getBaseNote()) }
+        id = withContext(Dispatchers.IO) { baseNoteDao.insertWithFilter(getBaseNote()) }
+        return id
     }
 
     private suspend fun updateImages() {
