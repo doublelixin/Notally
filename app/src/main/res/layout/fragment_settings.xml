@@ -160,6 +160,13 @@
             android:layout_height="wrap_content"
             android:text="@string/send_feedback" />
 
+        <TextView
+            android:id="@+id/version"
+            style="@style/Preference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/version" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

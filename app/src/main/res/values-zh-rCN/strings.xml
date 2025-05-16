@@ -113,6 +113,7 @@
     <string name="libraries">库</string>
     <string name="rate">给应用打分</string>
     <string name="send_feedback">发送反馈</string>
+    <string name="version">版本: %s</string>
 
     <!-- Auto backup -->
     <string name="auto_backup">自动备份</string>

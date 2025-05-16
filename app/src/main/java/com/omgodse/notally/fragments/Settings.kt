@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.omgodse.notally.BuildConfig
 import com.omgodse.notally.MenuDialog
 import com.omgodse.notally.Progress
 import com.omgodse.notally.R
@@ -98,6 +99,8 @@ class Settings : Fragment() {
         binding.SendFeedback.setOnClickListener {
             sendEmailWithLog()
         }
+
+        binding.version.text = getString(R.string.version, BuildConfig.VERSION_NAME)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
