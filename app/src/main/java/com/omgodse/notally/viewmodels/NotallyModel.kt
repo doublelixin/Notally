@@ -314,8 +314,13 @@ class NotallyModel(private val app: Application) : AndroidViewModel(app) {
         }
     }
 
-    suspend fun saveNote(): Long {
-        id = withContext(Dispatchers.IO) { baseNoteDao.insertWithFilter(getBaseNote()) }
+    suspend fun saveNote(isBodyChanged: Boolean): Long {
+        id = withContext(Dispatchers.IO) {
+            baseNoteDao.insertWithFilter(
+                getBaseNote(),
+                isBodyChanged
+            )
+        }
         return id
     }
 

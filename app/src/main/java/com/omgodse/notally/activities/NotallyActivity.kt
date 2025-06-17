@@ -58,20 +58,28 @@ abstract class NotallyActivity(private val type: Type) : AppCompatActivity() {
 
     internal lateinit var binding: ActivityNotallyBinding
     internal val model: NotallyModel by viewModels()
+    private var isBodyChanged = false
+    private var beforeText = ""
+    private var afterText = ""
 
     override fun finish() {
         lifecycleScope.launch {
-            model.saveNote()
+            afterText = binding.EnterBody.text.toString()
+            isBodyChanged = (beforeText != afterText)
+            model.saveNote(isBodyChanged)
             WidgetProvider.sendBroadcast(application, model.id)
             super.finish()
         }
+        isBodyChanged = false
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putLong("id", model.id)
         lifecycleScope.launch {
-            model.saveNote()
+            afterText = binding.EnterBody.text.toString()
+            isBodyChanged = (beforeText != afterText)
+            model.saveNote(isBodyChanged)
             WidgetProvider.sendBroadcast(application, model.id)
         }
     }
@@ -104,6 +112,7 @@ abstract class NotallyActivity(private val type: Type) : AppCompatActivity() {
             configureUI()
             binding.ScrollView.visibility = View.VISIBLE
         }
+        beforeText = binding.EnterBody.text.toString()
     }
 
 

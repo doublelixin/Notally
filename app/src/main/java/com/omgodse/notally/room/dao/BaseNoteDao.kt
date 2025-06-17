@@ -28,8 +28,8 @@ interface BaseNoteDao {
     suspend fun insert(baseNote: BaseNote): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWithFilter(baseNote: BaseNote): Long {
-        return if (baseNote.body.isEmpty() && baseNote.audios.isEmpty() && baseNote.images.isEmpty()) {
+    suspend fun insertWithFilter(baseNote: BaseNote, isChanged: Boolean): Long {
+        return if (baseNote.body.isEmpty() && baseNote.audios.isEmpty() && baseNote.images.isEmpty() || !isChanged) {
             -1L
         } else {
             insert(baseNote)
